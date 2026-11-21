@@ -137,7 +137,7 @@ function renderBoard(){
   button.setAttribute('aria-label',cat.name+', '+value+' баллов'+(played.has(key)?', сыграно':''));
   const span=document.createElement('span');span.textContent=value;button.append(span);button.addEventListener('click',()=>openQuestion(col,row,button));$('board').append(button);
  });
- $('progress').textContent='Сыграно '+played.size+' из 20';
+ $('progress').textContent='Сыграно '+played.size+' из 10';
 }
 function showOverlay(id,focus){
  lastFocus=document.activeElement;$(id).hidden=false;$('main').inert=true;document.body.style.overflow='hidden';
@@ -173,7 +173,7 @@ function award(index){
  if(index!==null)teams[index].score+=current.value;
  hideOverlay('question-overlay');renderScores();renderBoard();
  const next=$('board').querySelector('button:not(:disabled)');if(next)next.focus();
- if(played.size===20){$('restart').focus();finalTimer=setTimeout(showResults,450);}
+ if(played.size===10){$('restart').focus();finalTimer=setTimeout(showResults,450);}
 }
 function showResults(){
  finalTimer=null;
